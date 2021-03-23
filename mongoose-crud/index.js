@@ -101,7 +101,7 @@ const getCourses = async () => {
     const pageSize = 10;
 
     const courses = await Course
-        .find({author: "Mehedi Hasan", isPublished: true})
+        .find({author: "Mehedi Hasan"})
 
         // .find({price: {$gte: 10, lte: 20}}) comparison query
         // .find({price: {$in: [10,15, 20]}}) comparison query
@@ -129,5 +129,5 @@ const getCourses = async () => {
 
 // updateCourse("6052454d481b5b1c31d752b7");
 // deleteCourse("6052454d481b5b1c31d752b7");
-// getCourses();
-createCourse();
+getCourses();
+// createCourse();

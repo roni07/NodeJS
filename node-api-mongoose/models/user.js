@@ -27,7 +27,8 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.methods.generateAuthToken = function () { // we can not use here arrow function because arrow function does not have `this`
-    return jwt.sign({_id: this._id, isAdmin: this.isAdmin}, config.get('secretKey'));
+    return jwt.sign({_id: this._id, isAdmin: this.isAdmin}, 'secretKey');
+    // return jwt.sign({_id: this._id, isAdmin: this.isAdmin}, config.get('secretKey'));
     // return {token: jwt.sign({_id: this._id}, config.get('secretKey'))}; return object instead of pain string
 }
 

@@ -1,12 +1,12 @@
+const paginationMiddleWare = require('../middleware/pagination-middleware');
 const auth = require('../middleware/auth-middleware');
 const admin = require('../middleware/admin-middleware');
 const {Genre} = require('../models/genre');
 const express = require('express');
 const router = express.Router();
 
-router.get('/list', auth, async (req, res) => {
-    const genres = await Genre.find().sort('name');
-    return res.status(200).send(genres);
+router.get('/list', auth, paginationMiddleWare(Genre), async (req, res) => {
+    res.json(res.pagination);
 });
 
 router.post('/create', auth, async (req, res) => {

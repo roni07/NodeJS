@@ -1,3 +1,5 @@
+const {userQuery} = require('./user-pagination');
+const pagination = require('../middleware/pagination');
 const auth = require('../middleware/auth-middleware');
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
@@ -6,13 +8,39 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/list', async (req, res) => {
-    try {
-        const users = await User.find();
-        return res.status(200).send(users);
-    } catch (error) {
-        return res.status(400).send(error.message);
+
+    let page = req.query.page ? parseInt(req.query.page): 1;
+    let size = req.query.size ? parseInt(req.query.size) : 10;
+
+    if (page < 1 || size < 1) {
+        return res.status(400).send('Page size must be a positive number');
     }
+
+    const skip = (page - 1) * size;
+    const searchQuery = userQuery(req.query);
+
+    const totalElements = await User.countDocuments(searchQuery);
+
+    const users = await User.find(searchQuery).skip(skip).limit(size);
+
+    return res.status(200).send({page, size, totalElements, content: users});
 });
+/*router.get('/list', async (req, res) => {
+
+    const pageDetails = pagination.pageDetails(req.query.page, req.query.size);
+
+    const users = await User
+        .find({
+            name: new RegExp(req.query.name, 'i'),
+            email: new RegExp(req.query.email, 's')
+        })
+        .limit(pageDetails.limit)
+        .skip(pageDetails.skip);
+
+    const totalElements = await User.countDocuments(req.query.name);
+
+    return res.status(200).send(pagination.paginationResult(pageDetails, users, totalElements));
+});*/
 
 router.get('/me', auth, async (req, res) => {
     const user = await User.findById(req.user._id).select('-password');
