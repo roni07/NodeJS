@@ -48,7 +48,6 @@ router.get('/me', auth, async (req, res) => {
 });
 
 router.post('/create', async (req, res) => {
-    try {
         const {error} = userValidation(req.body);
         if (error) return res.status(400).send(error.details[0].message);
 
@@ -74,9 +73,6 @@ router.post('/create', async (req, res) => {
             name: user.name,
             email: user.email
         });*/
-    } catch (error) {
-        return res.status(400).send(error.message);
-    }
 });
 
 module.exports = router;
