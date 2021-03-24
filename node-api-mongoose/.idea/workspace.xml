@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfb354f3-fc1e-493f-8023-346c158ec87c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../mongoose-crud/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../mongoose-crud/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/auth-middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/auth-middleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/genre-api.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/genre-api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/user-api.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user-api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/startup/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/startup/routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +54,7 @@
       <workItem from="1616144461782" duration="411000" />
       <workItem from="1616145124839" duration="30397000" />
       <workItem from="1616246325369" duration="16697000" />
+      <workItem from="1616566183258" duration="3688000" />
     </task>
     <servers />
   </component>
