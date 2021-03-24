@@ -7,6 +7,7 @@ const rental = require('../routes/rental-api');
 const user = require('../routes/user-api');
 const auth = require('../routes/auth');
 const author = require('../routes/author-api');
+const book = require('../routes/book-api');
 
 module.exports = function (app) {
     app.use(express.json());
@@ -17,6 +18,7 @@ module.exports = function (app) {
     app.use('/api/user', user);
     app.use('/api/auth', auth);
     app.use('/api/author', author);
+    app.use('/api/book', book);
 
     app.use(error); // catch block message handling
 }
